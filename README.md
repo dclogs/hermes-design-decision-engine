@@ -32,7 +32,7 @@ Thinking Layer (10 disciplines) → Decision Engine (criteria + rubric + evidenc
     ↓
 Layout Intelligence (section composition + visual hierarchy)
     ↓
-HTML / PPT / Markdown
+HTML（当前仅此一路）
 ```
 
 ### Report Intent Classification
