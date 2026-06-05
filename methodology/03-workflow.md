@@ -6,15 +6,35 @@ The workflow is the execution mechanism — it translates the 10 disciplines fro
 
 ## Step 0: Quick Routing (30 seconds)
 
-Determine output type and approach based on request:
+Determine output type, intent, and approach based on request. Two orthogonal dimensions:
 
 ### Page Type Selection
+
 ```
 Request → Match PAGE_TYPE:
   comparison-matrix  → Flat IA (side-by-side comparison)
   industry-report    → Hierarchical IA (layered analysis)
   guide              → Step IA (phased roadmap)
 ```
+
+### Report Intent Selection
+
+```
+Match REPORT_INTENT:
+  decision      → Scoring + rubric + evidence + sensitivity. For procurement, vendor selection, investment.
+  education     → Concept framework + learning path + scenario matrix. No scoring. For guides, skill roadmaps.
+  research      → Evidence chain + trend analysis + scenario forecast. No scoring. For industry analysis.
+```
+
+### Pipeline Selection
+
+The intent determines which steps are executed:
+
+| Intent | 2A | 2B | 2B+1 | 2B+2 | 2B+3 Scoring | 2B+3b Sensitivity | 2C | 2B+4 | 2E Output |
+|--------|----|----|------|------|-------------|-------------------|----|------|-----------|
+| decision | ✅ | ✅ | ✅ | ✅ | **Required** | **Required** | ✅ | ✅ | Scoring matrix + sensitivity note |
+| education | ✅ | ✅ | ✅ | Optional | **Skip** | **Skip** | ✅ | ✅ | Concept map + learning path |
+| research | ✅ | ✅ | ✅ | Optional | **Skip** | **Skip** | ✅ | ✅ | Evidence chain + trend analysis + assumptions |
 
 ### Style & Data Decision
 ```

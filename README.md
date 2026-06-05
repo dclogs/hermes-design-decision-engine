@@ -1,6 +1,6 @@
 # Hermes Design Decision Engine
 
-**A multi-disciplinary reasoning framework that produces context-optimal design decisions — not templates, not generic output, but analysis and design derived from first principles.**
+**A multi-disciplinary reasoning framework that produces context-optimal design decisions and auditable consultancy reports — not templates, not generic output, but analysis and recommendations with traceable evidence chains.**
 
 > "When you ask an LLM to 'generate a professional comparison page,' it outputs the statistical average of every professional page in its training data. Never terrible. Never excellent. Never context-specific."
 >
@@ -16,6 +16,70 @@ The root cause isn't the LLM's capability — it's the **absence of reasoning co
 
 This framework replaces tacit intuition with **explicit disciplinary reasoning** — 10 disciplines, each applying a specific constraint that pushes the output toward true contextual fit.
 
+---
+
+## Architecture (v1.7.0)
+
+The framework evolves through four layers, driven by **Report Intent**:
+
+```
+Report Intent (decision / education / research)
+    ↓
+Pipeline Selection
+    ↓
+Thinking Layer (10 disciplines) → Decision Engine (criteria + rubric + evidence)
+                              → Assurance Layer (sensitivity + confidence)
+    ↓
+Layout Intelligence (section composition + visual hierarchy)
+    ↓
+HTML / PPT / Markdown
+```
+
+### Report Intent Classification
+
+Three pipeline paths, selected automatically at Step 1:
+
+| Intent | What It Does | Includes |
+|--------|-------------|----------|
+| **decision** | Vendor comparison, procurement, investment | Scoring matrix, rubric, evidence badges, sensitivity analysis |
+| **education** | Learning guides, skill roadmaps, conceptual frameworks | Concept maps, taxonomies, learning paths, scenario matrices. No scoring. |
+| **research** | Industry analysis, trend reports, market studies | Evidence chains, trend analysis, scenario forecasting, assumption boundaries. No scoring. |
+
+### Decision Engine (2B+3)
+
+Criterion-first scoring with full audit trail:
+
+- **weight_rationale** — why each weight percentage was chosen (all marked ESTIMATE)
+- **rubric** — scoring card with grade conditions and score ranges
+- **rubric_match** — which grade the facts match, per candidate
+- **rubric_level** — source traceability (public / experience / derived)
+- **evidence** — FACT / ESTIMATE / ASSUMPTION per score
+- **sensitivity** — breakpoint analysis (which weight change flips ranking)
+- **layer + maturity annotations** — every field tagged with its architectural layer and validation maturity
+
+### Assurance Layer
+
+Proves the recommendation is defensible:
+
+- Evidence chain (FACT/ESTIMATE/ASSUMPTION with sources)
+- Scoring rubric with source traceability (public/experience/derived)
+- Sensitivity analysis (weight breakpoint → ranking flip)
+- Recommendation confidence (Phase 2)
+
+### Layout Intelligence (2B+4)
+
+Controls visual hierarchy, not just card arrangement:
+
+- page_pattern: executive_summary / comparison_first / roadmap_planning / problem_solving / compliance_report
+- hero_type with merged recommendation box
+- KPI strip with non-duplicated metrics
+- Title system: L1-L4 hierarchical numbering
+- Chart layout: insight_driven (each chart paired with its own insight card)
+- Section density: compact / medium / spacious
+- Visual priority: decision / data / balanced
+
+---
+
 ## What You'll Find Here
 
 ```
@@ -26,50 +90,31 @@ hermes-design-decision-engine/
 │   ├── 03-workflow.md        # Step-by-step execution process
 │   ├── 04-quality-gates.md   # Quality control (7 gates)
 │   └── 05-glossary.md        # Terminology
-├── hermes-skill/             # Hermes Agent implementation
+├── hermes-skill/             # Hermes Agent implementation (v1.7.0)
 │   ├── SKILL.md              # Runnable agent skill definition
-│   └── references/           # 23 reference files (design tokens, UX heuristics, etc.)
+│   ├── scripts/chart_svg.py  # Zero-dependency chart generator
+│   ├── references/           # 28 reference files
+│   │   ├── decision-assurance.md    # Evidence + rubric + sensitivity
+│   │   ├── layout-strategy.md       # Page pattern + section composition
+│   │   ├── rendering-quality.md     # Visual consistency checklist
+│   │   ├── design-tokens.md         # Direction strategy
+│   │   ├── color-harmony.md         # Color derivation
+│   │   └── ... (23 more)
+│   └── templates/           # HTML skeleton templates
 ├── examples/                 # Real-world output examples
 └── CONTRIBUTING.md           # How to improve this framework
 ```
 
-## How It Works
+## Version History
 
-### The 10 Disciplines
-
-Each output is run through a sequential reasoning process:
-
-| # | Discipline | What It Constrains | Effect |
-|---|-----------|-------------------|--------|
-| 1 | **Economics** | Motivational tone (risk-averse → conservative, gain-seeking → vibrant) | Sets emotional baseline |
-| 2 | **Sociology** | Content depth based on decision chain | Right level for each reader |
-| 3 | **Psychology** | Row/column limits (≤10 rows, ≤5 CTAs) | Prevents overwhelm |
-| 4 | **Experience Design** | Interactive correctness (Fitts, Hick, Jakob) | Functional quality |
-| 5 | **Linguistics** | Domain-specific vocabulary and labeling | Builds credibility |
-| 6 | **Statistics** | Data confidence labeling (✅/⚠️/❌) | Trustworthy claims |
-| 7 | **Ethics** | Attribution, balance, transparency | Fair presentation |
-| 8 | **Narrative Design** | Story arc (problem → conflict → resolution) | Memorable structure |
-| 9 | **Mathematical Aesthetics** | Modular scale, 4px grid, tuning | Visual harmony |
-| 10 | **Semiotics** | Cultural meaning of colors/shapes/positions | Correct interpretation |
-
-### The 3 Quality Gates (on Every Conclusion)
-
-Before any conclusion reaches the reader, it must pass:
-
-- **Stakeholder Check** — Does this consider Supply, Demand, and Market perspectives?
-- **Novelty Check** — If you remove the data, is this still a valid statement? (If yes → common sense, delete)
-- **Actionability Check** — Would this change anyone's decision? (If no → pseudo-insight, delete)
-
-### The 7-Item Final Validation
-
-Every output passes through 7 gates before delivery: Data → Structure → Audience → Color → Accessibility → Quality → Recommendation.
-
-## Who This Is For
-
-- **AI Agent users** who need professional-grade output, not generic AI text
-- **Enterprise consultants** who produce comparison tables, industry reports, and transformation guides
-- **Design engineers** building AI-powered document generation systems
-- **Product managers** evaluating vendors or writing RFI responses
+| Version | Milestone |
+|---------|-----------|
+| v1.0-v1.2 | Report generation capability |
+| v1.3 | Chart generation (SVG, zero-dependency) |
+| v1.4 | Auditable recommendation scoring |
+| v1.5 | Layout Intelligence (page_pattern, hero, KPI strip, title system) |
+| v1.6 | Decision Assurance (criterion-first, rubric, evidence, sensitivity) |
+| **v1.7** | **Report Intent pipeline (decision/education/research) + layer annotations** |
 
 ## Getting Started
 
@@ -81,14 +126,7 @@ Just read the `methodology/` directory. The framework is documented as pure reas
 
 1. Install [Hermes Agent](https://hermes-agent.nousresearch.com)
 2. Copy or symlink `hermes-skill/` to your Hermes skills directory
-3. The agent will load the skill logic and apply the 10-discipline workflow
-
-## Live Examples
-
-See `examples/` for real outputs generated by this framework:
-- [Comparison Matrix: Vendor Selection](./examples/comparison-matrix/)
-- [Industry Report: Market Analysis](./examples/industry-report/)
-- [Transformation Guide: Digital Adoption](./examples/guide/)
+3. The agent will load the skill logic and apply the multi-pipeline workflow
 
 ## License
 
@@ -96,4 +134,4 @@ MIT — free to use, modify, and distribute. We'd love your improvements back vi
 
 ---
 
-**Built from production use in enterprise fintech, campus payments, and smart-campus consulting. Every failure logged, root-caused in batches of 20, continuously improving.** 
+**Built from production use in enterprise fintech, campus payments, and smart-campus consulting. Every failure logged in output-tracker, root-caused in batches of 20, continuously improving.**

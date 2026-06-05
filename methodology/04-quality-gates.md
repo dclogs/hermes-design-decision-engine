@@ -156,6 +156,20 @@ All three must pass. One NO → return to the corresponding step.
                      timeline + priority for report/guide types
 ```
 
+**Intent-specific additions** (v1.7+):
+
+```
+decision reports also check:
+  ☐ Every criterion has rubric with ≥3 verifiable grade tiers
+  ☐ Every score has rubric_match + evidence.level
+  ☐ Every weight has weight_rationale
+  ☐ Sensitivity computed, breakpoints recorded
+
+education/research reports also check:
+  ☐ No scoring matrix present (intent doesn't require it)
+  ☐ Concept/evidence structure matches intent (education → framework+path, research → evidence+trend)
+```
+
 One failure → return to fix. Zero exceptions.
 
 ---

@@ -5,6 +5,54 @@ All notable changes to the `client-proposal-html` skill are documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] — 2026-06-05
+
+### Added
+
+- **Report Intent pipeline** — Step 1 新增 report_intent（decision/education/research），驱动 pipeline 选择。education 和 research 跳过评分引擎。
+- **Layer annotations** — 2B+3 数据模型每字段标注 layer（decision/assurance/presentation）+ maturity（stable/beta/experimental）
+- **output-tracker layer_distribution 统计** — 每次记录各层字段数，跨案例追踪趋势
+- **references/decision-assurance.md** — 评分卡体系（rubric 定位声明 + 三大设计原则 + 结构示例 + rubric_source）
+- **references/rendering-quality.md** — 渲染质量自检清单（6 类 + 更新流程）
+
+### Enhanced
+
+- **2B+3 评分体系升级** — 全字段 criterion-first + weight_rationale + rubric + rubric_match + evidence.level + sensitivity + rubric_source
+- **evidence 和 rubric 等级定义** — FACT/ESTIMATE/ASSUMPTION + 公开/经验/推导评分卡
+- **render 质量自检** — 2E 输出前加载 rendering-quality.md 逐条确认
+
+### Fixed
+
+- **SVG 高度不一致** — 配对图表强制相同 height 参数，写入 layout-strategy.md 规则
+- **hero/KPI 信息重复** — hero_type=recommendation 时 hero 嵌入推荐框不展示 stats
+- **insight/chart 脱耦** — 每张图必须有自己的独立 insight card，禁止 standalone grid
+
+## [1.4.0] — 2026-06-05
+
+### Added
+
+- **2B+2 Step 0 metric_selection** — 在图表选择前先选对指标：受众关心的 2-3 个核心指标是什么？记录到 output-tracker
+
+- **2B+3 Recommendation Scoring Engine（comparison-matrix 专用）** — 可审计的加权评分推理链。4 步流程：定义评价体系（5±1 维度+权重）→ 逐方案逐维度评分（0-100+来源）→ 加权总分 → 产出推荐
+
+- **2E comparison-matrix 输出格式更新** — 评分矩阵表前置（推理证据在推荐之前）、最后一行为加权总分行、推荐方案高亮
+
+### Changed
+
+- 2B+2 Step 1→2→3 调整为 Step 0→1→2→3（首增 metric_selection）
+
+### Fixed
+
+- 更新 2B+2 中 mcp-echarts 引用为 scripts/chart_svg.py
+
+## [1.3.0] — 2026-06-05
+
+### Added
+
+- **2B+2 Data Expression Decision 新步骤** — 位于 2B+1 IA 后、2C 配色前，数据驱动表达选择（table / chart / chart+table）
+- **scripts/chart_svg.py** — 纯 Python SVG 图表生成器，零外部依赖，支持 4 种类型：bar / line / donut / radar
+- **output-tracker 新增 chart_decision / visualization_effect 字段** — 记录图表决策效果
+
 ## [1.2.0] — 2026-06-05
 
 ### Added

@@ -30,7 +30,12 @@
 | **Actionability Check** | A gate that removes pseudo-insights by asking: "Would this conclusion change the audience's decision?" |
 | **Stakeholder Check** | A gate that prevents biased analysis by verifying coverage of Supply, Demand, and Market side perspectives. |
 | **Confidence Level** | A data quality rating system: ✅ Verified, 📊 Industry Estimate, ⚠️ Anecdotal, ❌ Not Found (discarded). |
-| **Calibration** | The process of validating color/design choices against real-world products (Stripe, Notion, Linear) to ensure they don't appear dated. |
+| | **Calibration** | The process of validating color/design choices against real-world products (Stripe, Notion, Linear) to ensure they don't appear dated. |
+| | **Evidence Level** | A score-level traceability tag: FACT (publicly verifiable), ESTIMATE (industry-based inference), ASSUMPTION (no reliable data). Each score must carry one. |
+| | **Rubric** | A scoring card per criterion defining grade tiers with verifiable conditions (e.g., "has national certification → 95-100"). Replaces agent intuition with traceable matching. |
+| | **Rubric Level** | Source traceability of the rubric itself: Public (industry standard), Experience (domain expertise), Derived (agent-constructed, lowest certainty). |
+| | **Weight Rationale** | Free-text explanation per weight percentage, citing audience analysis (2B) and research findings (2A). All weights marked ESTIMATE. |
+| | **Sensitivity Analysis** | Breakpoint computation: for each criterion, how much must its weight drop to flip the ranking. Identifies which dimensions are decision-critical. |
 
 ## Output Types
 
@@ -41,7 +46,12 @@
 | **Guide** | A phased transformation roadmap with timeline, priorities, and no-regret moves. |
 | **Type1 PK (Horizontal)** | Equal-scale comparison between peers. Only used when data for both sides is symmetric. |
 | **Type2 Scenario** | "Best practice" format — compare against a single strong reference when data is asymmetric. Default recommendation. |
-| **Type3 Benchmark** | Compare against an industry standard when a clear leader exists. |
+| | **Type3 Benchmark** | Compare against an industry standard when a clear leader exists. |
+| | **Report Intent** | The user's actual need behind the report: decision (procurement/vendor selection), education (learning/understanding), research (industry analysis). Drives which pipeline steps execute. |
+| | **Page Pattern** | The section skeleton for a report, driven by layout_strategy. Examples: executive_summary (conclusion-first), comparison_first (table-first), roadmap_planning (phases). |
+| | **Hero Section** | The top-of-page content block. When hero_type=recommendation, contains embedded recommendation box (not duplicated KPI stats). |
+| | **KPI Strip** | A horizontal row of 3-4 large-number cards. Numbers are unique — no overlap with hero section content. |
+| | **Insight-Driven Chart Layout** | A chart+insight pairing rule: each chart must have its own independent insight card. No standalone chart grids. |
 
 ## Technical
 
